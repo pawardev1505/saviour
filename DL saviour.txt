@@ -1,0 +1,863 @@
+experiment no. 2 
+
+Aim: To perform installation of Git and work on local and remote Git repositories.
+
+1)sudo apt-get install git
+
+
+Step 2: Customize and configure your Git Account:
+git config --global user.name “ojas1807”
+git config --global user.email "ojaspatrikar15@gmail.com"
+
+Step . 3
+To Integrate Git account with Github:
+Goto www.github.com
+Sign-in to your account
+Create a Repository
+
+Step 4: mkdir workspace
+        cd workspace 
+
+
+Step 5:  git init 
+          ls 
+
+Step 6:  git clone 
+         ls 
+         cd repo name 
+         ls
+
+Step 7: touch hello.py
+         ls
+
+
+# Function to calculate factorial
+def factorial(n):
+    if n < 0:
+        return 0
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        fact = 1
+        while(n > 1):
+            fact *= n
+            n -= 1
+        return fact
+
+# Driver Code
+num = 5
+print("Factorial of", num, "is", factorial(num))
+
+
+Step 8:git status
+
+step 9: git add hello.py
+        git status
+
+step 10: git commit -m “First Python File"
+
+
+
+Step 11: To Push your changes to Github Repository:
+
+git push origin master or git push origin main
+
+
+It says support for password authentication was removed on August 13, 2021.
+So we need a new kind of method:
+Goto your Github Account→User Profile→Settings→Developer
+Settings→Personal Access Token→Token(classic)→ Generate New
+token→Generate New Token(Classic)
+
+
+
+step 12:  Click on Generate Token
+Copy the token and paste it some location:
+#git remote set-url origin https://tokenhere@github.com/user_name/repo_name
+
+
+Step13 : To see the logs in oneline like username, email -id, date, time of creation.
+
+git log
+or
+git log –oneline
+
+Step 14: To show repository id and other detail
+
+git show
+
+step 15: To see the difference in the content of file between first and second commit. 
+      
+ #git diff
+
+
+Step 16: Creating a latter commit and reverting back to see the initial/original content
+git revert<secondcommitID>
+
+
+
+
+
+
+
+
+
+
+Experiment No. 3
+
+Aim: To understand and perform version control system / source code management using Git.
+
+cd workspace  
+        ls
+  
+cd hello_test/
+
+
+Step1: Create a new branch
+Create a new branch called feature using the git branch <branch-name> command
+
+git branch feature
+
+
+Step 3: Checkout the new branch
+Use the git checkout <branch-name> command to switch to the feature branch.
+
+git checkout feature
+
+Step 4: (a)Verify the current branch:
+a. Verify you have switched to the feature branch using the git branch command. Note the "*" next to the
+feature branch. This is now the working branch.
+
+git branch 
+
+(b) b. Append a new line of text to the hello.py file, again using the echo command with the ">>" signs.
+
+echo "this text was added originally while in the features " >>hello.py
+
+
+(C)c. Verify the line was appended to the file using the cat command.
+
+cat hello.py
+
+
+# Taking input from the user
+num = int(input("Enter a number: "))
+factorial = 1
+
+# Checking for negative numbers
+if num < 0:
+    print("Factorial does not exist for negative numbers")
+elif num == 0:
+    print("The factorial of 0 is 1")
+else:
+    for i in range(1, num + 1):
+        factorial *= i
+    print("The factorial of", num, "is", factorial)
+
+
+
+
+Step 5: Stage the modified file in the feature branch
+a. Stage the updated file to the current feature branch.
+
+git status
+
+
+git add hello.py
+
+
+Step 6: Commit the staged file in the feature branch
+
+git commit -m "message "
+
+
+git log 
+
+
+Step 7: Checkout the main branch
+
+git checkout main
+
+git branch 
+
+
+Step 8: Merge file contents from feature to main branch.
+
+git merge feature 
+
+
+Step 9: Push the changes from local to remote repository
+
+git push -u origin main
+
+
+Generate a classic token first:
+
+git remote set-url origin token@github.com/ojas07/hello_test
+
+git push origin main
+
+
+STEP 11] Goto Github Account and see the update
+
+STEP 10] Deleting a branch
+
+A] Verify the feature branch is still available using the git branch command.
+git branch 
+
+B] Delete the feature branch using the git branch -d <branch-name> command
+git branch -d feature
+
+C] Verify the feature branch is no longer available using the git branch command
+
+git branch 
+
+
+
+
+Experiment No. 4
+
+Aim: To install and configure Jenkins to test and deploy an application with Maven.
+
+
+
+Step 2-: Install Java development kit
+
+#apt-get install openjdk-11-jdk
+
+
+Step 3-: To test if Java has been installed successfully, run this command:
+
+#java -version
+
+
+Step 4-: Install Jenkins
+Now, we will install Jenkins itself. Issue the following four commands in
+sequence to initiate the installation from the Jenkins repository:
+
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+/usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+
+
+sudo apt-get update
+
+sudo apt-get install Jenkins
+
+Step 5-: To check Jenkins installed or not:
+# jenkins --version
+
+Step 6-: Once that’s done, start the Jenkins service with the following command:
+
+# sudo systemctl start jenkins.service
+
+To confirm its status, use:
+#sudo systemctl status Jenkins
+
+Step 7:- Adjust Firewall and Configuring Jenkins
+
+sudo ufw status 
+
+sudo ufw allow 8080
+
+sudo ufw enable 
+
+
+sudo ufw status 
+
+
+Step 8-: With the firewall configured, it’s time to set up Jenkins itself.
+
+on http://localhost:8080
+inbrowser OR http://127.0.0.1:8080
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+Step 9-: Customize Jenkins window will appear. We recommend simply
+selecting the Install suggested plugins option for this step.
+
+
+Step 10-: Give it a couple of minutes for the installation process to complete. Once
+it’s done, specify your username, password, full name, and email address, and click
+on Save and Continue to create an admin user.
+
+Step 11-: After configuration, the Jenkins dashboard will appear, meaning the
+Jenkins server installation and initial setup were successful.
+
+
+Task to be performed as a part of this experiment:
+Jenkins Programming in Java using Version Control Git
+Create and run a job in Jenkins for simple HelloWorld in Java
+
+Step 1: Go to the Jenkins dashboard and click on the New Item.
+
+Step 2: In the next page, enter the item name, and select the 'Freestyle project' option. And click
+OK. Here, my item name is HelloWorld.
+
+Step 3: When you enter the OK, you will get a configuration page. Enter the details of the
+project in the Description section.
+
+Step 4: On the Source Code Management section, select the Git option, and specify the
+Repository URL.
+
+
+o First, you have to create a project in java. Here, I created a simple HelloWorld program
+and saved it to one folder i.e. Desktop/JENKINS_LAB. Compile the HelloWorld.java file.
+
+cd JENKINS_LAB
+gedit Simple.java
+javac Simple.java
+java Simple
+
+
+Now create a project in your GitHub account and give the Repository name. Here my
+repository name is HelloWorld_29072024.
+
+
+Open the command prompt in your Ubuntu and go to the path where your java file is
+created.
+o Then run the following command.
+git init
+
+
+git status
+
+git add .
+
+Configure your GitHub account in your system.
+
+1. git config --global user.email "your@email"
+2. git config --global user.name "username"
+3. git config --list
+
+
+Commit it and add the repository URL.
+1. git commit -m "Added HelloWorld Java Program"
+
+
+git remote add origin https://github.com/sujataoak799/HelloWorld_29072024.git
+
+git push -u origin master
+
+
+git remote set-url origin https://ghp_ZaLvsbTPgxILguomA7MJ2Wwa52NpCX3 iwWij@github.com/sujataoak799/HelloWorld_29072024.git
+
+git push -u origin master
+
+
+Step 5: Add the Repository URL in the Source Code Management section.
+
+
+Step 6: Now, it is time to build the code. Click on "Add build step" and select the "Execute
+Shell".
+
+
+Step 7: Enter the following command to compile the java code.
+javac Simple.java
+java Simple
+
+
+Step 8: Click Apply and then Save button.
+Step 9: Once you saved the configuration, then now can click on Build Now option.
+Step 10: After clicking on Build Now, you can see the status of the build on the Build History
+section.
+Step 11: Click on Console Output from the left side of the screen to see the status of the build
+you run. It should show the success message.
+
+
+
+
+
+
+
+Experiment No. 5
+
+Aim: To create and build a CI/CD pipeline in Jenkins to test and deploy an application over the
+tomcat server.
+
+
+Step1: Now, we need to specify the Java location to Jenkins. Go back to your server command prompt
+and use the code below to fetch the directory of Java. Multiple directories will be listed using the below
+code. In our case, the directory is: ‘/usr/lib/jvm/java-11-openjdk-amd64/bin/java’.
+
+
+find / -type f -name java
+
+
+Step 2) Copy the above location and go back to your Jenkins Dashboard. Look for Global Tool
+Configuration under the Manage Jenkins menu, as shown in the image below.
+
+Step 3) Unselect the Install automatically button from the JDK window and fill the fields. Paste
+the java location path and trim it as shown in the image below. In the below Git window, select
+the install automatically checkbox.
+
+
+Step 4) Similarly, check the box for Maven and fill the name field. Save all the settings, and now
+the configuration of Jenkins is completed.
+
+
+
+
+Create CI/CD Pipeline Jenkins
+We can now start creating pipelines using Jenkins after all the configuration and setup.
+Continuous Integration
+
+
+Step 1) Create New Item, select Freestyle Project and provide a name to your item.
+
+Step 2) Switch to the Source Code Management window and paste your Github repository link.
+Specify your branch name of the repository below and Save it.
+
+[Note: The above-linked Github repository ‘gihub.com/subu123321/hello-world‘ contains a
+‘pom.xml‘ file used for Java compilation and generates a web app. It will be deployed to the
+server]
+
+
+Step 3) Now click on Build Now button from the menu. With this step, all the
+repository files will be fetched by Jenkins. Click on Configure to go back to the same
+settings page.
+
+
+Step 4) Click on Build Tab and select build step as ‘Invoke top-level Maven targets‘.
+
+
+Step 5) Select your maven name from the drop-down menu. Fill the goals with the
+multiple jobs you need to perform and separate them with one space. These goals are
+available in your repository, and you need to invoke them using Maven. Save it and
+again click on the ‘Build Now‘ button from the menu as we did in the previous steps.
+Now the maven commands will be executed that will generate a war file.
+
+
+Click-On Build Now:
+
+
+
+Step 6) If you want to check the war file created in the previous steps, visit the
+workspace on your Jenkins dashboard or just run the directory commands in your
+server. Your directories and project name can vary, so you can use the ‘ls‘ command
+to see the list inside that directory and also keep in mind the directory name is case
+sensitive.
+
+
+cd /var/lib/Jenkins/workspace/
+ls
+
+cd CICD_Pipeline_Demo/
+ls
+
+cd webapp
+ls
+
+cd target/
+ls
+
+
+
+Step 7) Now go back to Configure and visit the ‘Post Build Actions‘ tab. Click the
+drop-down and select ‘Archive the Artifacts‘ from the options. In the field, write down
+‘**/*.war‘ as shown in the image below. It will fetch all the directories and get the war
+file wherever it is present. Click again on Build Now button, and you will now see the
+Artifacts in the Jenkins dashboard.
+
+
+
+
+
+Continuous Deployment
+Step 8) We need to install Apache Tomcat, and for this, you need to visit the Tomcat
+Download page. In the core section, hover over the ‘tar.gz’ link and copy it. Now, use
+the below commands in your server one by one.
+• First, four commands will create one temporary directory and user group to
+access the file. Here, use the command curl -O ‘paste tomcat download link‘ as
+shown in the command below.
+• Use further commands to create a tomcat directory and extract the gzip file. Just
+cross-check the version number of the Tomcat that you are downloading and
+extracting.
+• Now the permission of the files needs to be configured with the below commands.
+In the last command, replace it with your username by which you are accessing
+the server.
+
+
+
+su root
+
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+
+cd
+
+cd /tmp
+
+curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.93/bin/apache-tomcat-
+9.0.93.tar.gz
+
+sudo mkdir /opt/tomcat
+
+sudo tar xzvf apache-tomcat-9.0.54.tar.gz -C /opt/tomcat --strip-components=1
+
+cd /opt/tomcat
+cd ..
+
+
+sudo chown -R sujata:sujata tomcat/
+
+
+
+Step 9) We need to update the port number from 8080 to 8090 in the server.xml file.
+We are updating it as this port number is already in use by Jenkins, and we have
+created 8090 in Azure VM for Tomcat. Use the below commands to edit the file.
+When you enter the file, click the INSERT button to edit. Now search for a similar
+code, as shown in the image below.
+
+
+Update the port number to 8090. To save the file, press the Esc key, type :wq and
+click on Enter button.
+
+
+cd
+
+cd /opt/tomcat/conf
+
+vi server.xml
+
+
+Step 10) Similarly, we need to edit the ‘tomcat-users.xml’ file to update the roles that
+enable us to deploy files using Tomcat. In the file before tomcat-users ending code,
+paste the below roles code. To save the file press, the Esc key, type :wq and
+press Enter.
+
+cd
+
+cd /opt/tomcat/conf
+
+vi tomcat-users.xml
+
+
+&lt;role rolename=&quot;manager-gui&quot;/&gt;
+ &lt;role rolename=&quot;manager-script&quot;/&gt;
+ &lt;role rolename=&quot;manager-jmx&quot;/&gt;
+ &lt;role rolename=&quot;manager-status&quot;/&gt;
+ &lt;user username=&quot;admin&quot; password=&quot;admin&quot; roles=&quot;manager-gui, manager-
+script, manager-jmx, manager-status&quot;/&gt;
+ &lt;user username=&quot;deployer&quot; password=&quot;deployer&quot; roles=&quot;manager-script&quot;/&gt;
+&lt;user username=&quot;tomcat&quot; password=&quot;s3cret&quot; roles=&quot;manager-gui&quot;/&gt;
+
+
+
+
+Step 11) We also need to update the context.xml file to remove the IP restriction.
+Use the same steps to edit the file with the below commands.
+
+
+cd
+
+cd /opt/tomcat/webapps/manager/META-INF
+
+vi context.xml
+
+
+Remove all the content present inside ‘context‘ as shown in the image below and
+save it. :wq &lt;enter key&gt;
+
+
+
+Step 12) Now, all the files are edited successfully. To update the Tomcat, we need to
+restart the system to accept all our changes. Use the below commands in the server
+for shutdown and startup of Tomcat. With this step, Tomcat is ready to deploy our
+container.
+
+
+cd
+
+
+cd /opt/tomcat/bin/
+
+./shutdown.sh
+
+./startup.sh
+
+
+
+
+Step 13) In the Jenkins Dashboard, click on Manage Jenkins and then visit Manage
+Plugins.
+
+
+
+Step 14) Click on the Available tab and search for the ‘Deploy to Container‘ plugin.
+Select the plugin and click on the ‘Install without restart‘ button.
+
+
+
+Step 15) Go back to your Configure window and select the Post-build Actions tab. 
+Select the ‘Add post-build action‘ drop-down button and select the ‘Deploy war/ear to
+a container‘ plugin. Fill the same path of your war file here, as shown in the image
+below.
+
+
+
+
+Step 16) Now click on the ‘Add Container‘ button and select the ‘Tomcat 9.x Remote‘
+as we are using version 9 of the Tomcat. Fill in the URL of the same virtual machine
+with the new port number 8090.
+
+
+
+Step 17) In this window, fill in the username and password that we have used in the
+‘tomcat-users.xml‘ file (in Step 10). Fill in the ID, description and click on the button
+
+‘Add‘.
+
+
+Step 18) Click on the credentials drop-down button and select the recently created
+credential. Save all the settings and again click on the ‘Build Now‘ button from the
+Jenkins dashboard. If the Build is successful, the war file will get deployed.
+
+
+cd   
+
+cd /opt/tomcat/webapps/manager/META-INF
+
+vi context.xml 
+
+
+
+<?xml version="1.0" encoding="UTF-8"?> <!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 < Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. > <CookieProcessor className="org.apache.tomcat.util.http.Rfc6265CookieProcessor" sameSiteCookies="strict" /> <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\,\d+|::110:0:0:0:0:0:0:1" /> <Manager sessionAttributeValueClassNameFilter="java.lang\.(?: Boolean | Integer | Long | Number | String)\org\.a pache.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java.util\.(?:Linked)?HashMap"/> </Context>
+
+
+
+
+
+replace with 
+
+
+<?xml version="1.0" encoding="UTF-8"?> <!-- Licensed to the Apache Software Foundation (ASF) under one or моге contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at < > http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. <Context antiResourceLocking="false" privileged="true> </Context
+
+
+
+cd  ../../../bin/
+
+./shutdown.sh
+
+./startup.sh
+
+
+
+
+
+
+Experiment No. 6
+Aim: To implement Jenkins Master-Slave Architecture with Scaling.
+
+
+
+
+
+STEP1: In Jenkins Dashboard Click on Manage Jenkins -> Manage Nodes
+
+
+STEP 2: Select New Node and enter the name of the node in the Node Name field.
+Select Permanent Agent and click the OK button. Initially, you will get only one option,
+“Permanent Agent.” Once we have one or more slaves you will get the “Copy Existing Node”
+option. Click Create
+
+
+STEP3: Configure node with below details:
+
+pwd
+
+su root
+
+find / -type f -name java
+
+Under ‘Node Properties’, provide jdk path.
+
+
+STEP4: On click of ‘Save’ will display the below page with error message. Here Jenkins connect
+with Slave node using Java Web Start and it needs a port to establish the connection.
+To configure JNLP port in global security. Now goto Manage Jenkins -> Security
+
+
+sudo ufw allow 50000/tcp
+
+
+STEP5: Again coming back to Jenkins and navigate to Nodes -> agent2 which will display two
+ways to connect with Agent node.
+
+To establish connection, run the below command
+
+This will establish connection with the configured Slave node.
+
+Now Jenkins Slave node is ready to run any job. This node’s label name should be mentioned in
+the corresponding Job configuration as below:
+
+
+STEP 6: Create a New Job in Jenkins dashboard
+
+
+STEP 7: Configure the page with following:
+
+
+Click on Build-Now, Console Output
+
+
+STEP 8: Goto Jenkins Dashboard->Manage Jenkins->Nodes->agent2
+
+
+
+
+
+	
+Experiment No. 7
+Aim: To implement selenium automation.
+
+
+experiment no. 8
+aim : To understand Docker Architecture and Container Life Cycle, install Docker and execute docker commands to manage images and interact with containers
+
+step 1 : docker --version
+step 2 :  docker pull ubuntu
+step 2 : docker images 
+step 4: docker run -it -d ubuntu 
+step 5: docker ps
+step 6 : docker ps -a                    
+step 7: docker exec -it 45783798*** bash           you get this number as containr id
+step 8: exit 
+step 9: docker stop 45783798***
+step 10 : docker kill 45783798***
+step 11: docker commit 45783798*** ani/ubuntu new        if root@ani then ani
+step 12: docker login
+step 13 : docker images 
+
+
+
+Exp9:Aim: To build an image for a sample web application from a docker file using various
+docker file instructions
+
+
+1 : docker pull nginx
+2. docker images
+3 :docker run --name webserver1 5ef
+4: In another terminal
+    docker ps -a
+
+5 : docker rm 348      here 348  is first 3 letters of con id
+6: In terminal 1:    
+docker run -it -p 3031:80 --name server1nginx:latest bash
+
+
+7: In Another Terminal:
+docker ps -a
+
+8:  # cd /usr/share/nginx/html/
+9: ls 
+
+
+10:  Rename the default index.html to index.html_backup
+#mv index.html index.html_backup
+
+
+11:   nano index.html
+
+12:  apt install 
+
+13:  nano index.html 
+      <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Login Page </title>
+<style>
+Body {
+ font-family: Calibri, Helvetica, sans-serif;
+ background-color: pink;
+}
+button {
+ background-color: #4CAF50;
+ width: 100%;
+ color: orange;
+ padding: 15px;
+ margin: 10px 0px;
+ border: none;
+ cursor: pointer;
+ }
+form {
+ border: 3px solid #f1f1f1;
+ }
+input[type=text], input[type=password] {
+ width: 100%;
+ margin: 8px 0;
+ padding: 12px 20px;
+ display: inline-block;
+ border: 2px solid green;
+ box-sizing: border-box;
+ }
+button:hover {
+ opacity: 0.7;
+Compiled By: Prof. Sujata Oak
+ }
+ .cancelbtn {
+ width: auto;
+ padding: 10px 18px;
+ margin: 10px 5px;
+ }
+
+
+.container {
+ padding: 25px;
+ background-color: lightblue;
+ }
+</style>
+</head>
+<body>
+ <center> <h1> <b>Student Login Form Designed by Sujata Oak</b> </h1> </center>
+ <form>
+ <div class="container">
+ <label>Username : </label>
+ <input type="text" placeholder="Enter Username" name="username" required>
+ <label>Password : </label>
+ <input type="password" placeholder="Enter Password" name="password" required>
+ <button type="submit">Login</button>
+ <input type="checkbox" checked="checked"> Remember me
+ <button type="button" class="cancelbtn"> Cancel</button>
+ Forgot <a href="#"> password? </a>
+ </div>
+ </form>
+</body>
+</html> 
+
+
+
+14:  To check nginx service status:  
+     service nginx status
+
+15 :  GOTO BROWSER: localhost:3031
+
+
+16:  Refresh page . Your Container is not started
+    docker start 595                  here 595 is docker id
+
+
+17:  #docker exec 595 service nginx start
+
+
+18 : #docker pause 595
+
+
+19: Then, Remove the Container
+    docker rm 595
+
+
+20:  #docker build -t sujatadocker2024/websitetest .
+
+
+21 : Run the container now  
+     #sudo su 
+
+  22:  Goto Browser: localhost:3032
+
+
+
