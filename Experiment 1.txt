@@ -1,0 +1,321 @@
+
+experiment No. 1 
+
+Write a program to create a Student portfolio webpage using HTML 5
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Student Portfolio</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section id="about">
+        <article>
+            <h2>About Me</h2>
+            <p>Hi, I'm Shreyash Narvekar , a passionate student interested in Cyber Security . I'm currently studying Information Technology from APSIT and working on various projects related to Cyber-sec and Hacking .</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shreyash . All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+contact.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Student Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Contact Me</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section id="contact">
+        <article>
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shreyash" target="_blank" aria-label="LinkedIn Profile">LinkedIn Profile</a></p>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shreyash Narvekar. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+project.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Student Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Projects</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section id="projects">
+        <article>
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Virtual Lab</strong> Building a Virtual Lab of Defensive and Offensive Kali Linux </li>
+                <li><strong>IDS Config </strong> Deployed a IDS system on the Local Machine and HOME-NET </li>
+                <li><strong>SQL Injection </strong> Attack various Website and found some credentials.</li>
+            </ul>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shreyash. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+skill.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills and Academic Records - Student Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Skills & Academic Records</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section id="skills">
+        <article>
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming Languages: HTML, CSS, JavaScript</li>
+                <li>Tools: Git, VSCode</li>
+                <li>Other Skills: Problem-solving, Teamwork</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="academic-records">
+        <article>
+            <h2>Academic Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Passing Year</th>
+                        <th>Grade </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachelor's in Information Technology </td>
+                        <td>Mumbai University </td>
+                        <td>2026</td>
+                        <td>8.45</td>
+                    </tr>
+                    <tr>
+                        <td>HSC</td>
+                        <td>St John Junior College</td>
+                        <td>2022</td>
+                        <td>70 % </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Shreyash . All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+general css
+
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Navigation styles */
+nav {
+    margin: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+/* Section and Article styles */
+section {
+    margin: 20px;
+}
+
+article {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+/* Footer styles */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Contact link styles */
+a {
+    color: #4CAF50;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    article {
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+}
+
+/* More contrast on hover */
+nav a:hover {
+    color: #006400;
+}
+
+
+
+
+

@@ -1,0 +1,79 @@
+
+Experiment No.7
+
+Write a program to implement ES6 Iterator & Promises
+
+
+
+iterator.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript Iterators</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <h3>JavaScript Iterators</h3>
+    <p id="demo"></p>
+    <script>
+        const myNumbers = {};
+        myNumbers[Symbol.iterator] = function() {
+            let n = 0;
+            return {
+                next() {
+                    n += 1;
+                    if (n > 10) {
+                        return { value: undefined, done: true }; // End iterator after 10
+                    }
+                    return { value: n, done: false };
+                }
+            };
+        };
+
+        let text = "";
+        for (const num of myNumbers) {
+            text += num + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    </script>
+</body>
+</html>
+
+
+
+
+
+promise.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <script>
+        const myPromise = new Promise((resolve, reject) => {
+            if (Math.random() > 0.5) { // Adjusted threshold for randomness
+                console.log('Resolving the promise ...');
+                resolve('Hello, Positive :)');
+            } else {
+                reject(new Error('No place for Negative here :(')); // Fixed placement of reject
+            }
+        });
+
+        const Fulfilled = (fulfilledValue) => console.log(fulfilledValue);
+        const Rejected = (error) => console.log(error);
+
+        myPromise.then(Fulfilled).catch(Rejected); // Cleaned up promise handling
+    </script>
+</body>
+</html>
+
+

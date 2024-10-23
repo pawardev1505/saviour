@@ -1,0 +1,100 @@
+Experiment 10
+
+
+Write a program to implement React JS Refs. 
+
+
+
+
+npx create-react-app my-app
+
+cd my-app
+
+npm install
+
+npm start
+
+
+
+App.js
+
+import './App.css';
+import UserRef from './UserRef'
+function App() {
+ return (
+ <div>
+ <UserRef></UserRef>
+ </div>
+ );
+}
+export default App;
+
+
+
+
+UserRef.js
+
+
+import React, { Component } from 'react';
+import './UserRef.css'; // Assuming you want custom styling
+
+class UserRef extends Component {
+  constructor() {
+    super();
+    this.UserRef = React.createRef();
+  }
+
+  edit() {
+    this.UserRef.current.style.backgroundColor = 'yellow';
+    this.UserRef.current.style.fontSize = '24px'; // A more readable size than 100px
+    this.UserRef.current.style.fontFamily = 'Lucida Handwriting';
+  }
+
+  hide() {
+    this.UserRef.current.style.display = 'none'; // Hides the content
+  }
+
+  reset() {
+    this.UserRef.current.style.display = 'block';
+    this.UserRef.current.style.backgroundColor = '';
+    this.UserRef.current.style.fontSize = '16px'; // Reset to default
+    this.UserRef.current.style.fontFamily = '';
+  }
+
+  render() {
+    return (
+      <div className="user-ref-container">
+        <h1>Demo for ref using class component</h1>
+        <input ref={this.UserRef} type="text" name="user" placeholder="Type something..." />
+        <br />
+        <button onClick={() => this.edit()}>Click Me</button>
+        <button onClick={() => this.hide()}>Click to Hide</button>
+        <button onClick={() => this.reset()}>Reset</button>
+      </div>
+    );
+  }
+}
+
+export default UserRef;
+
+
+UserRef.css
+
+.user-ref-container {
+  margin: 20px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
